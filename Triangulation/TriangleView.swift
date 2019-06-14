@@ -8,7 +8,7 @@
 
 import UIKit
 import GameplayKit
-import DelaunaySwift
+import Delaunay
 
 class TriangleView: UIView {
     
@@ -27,7 +27,7 @@ class TriangleView: UIView {
         addGestureRecognizer(tapGesture)
     }
     
-    func tapped() {
+    @objc func tapped() {
         if let sublayers = layer.sublayers {
             for sublayer in sublayers {
                 sublayer.removeFromSuperlayer()

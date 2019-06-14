@@ -94,10 +94,8 @@ extension Edge: Equatable {
 }
 
 extension Edge: Hashable {
-    public var hashValue: Int {
-        var seed = UInt(0)
-        hash_combine(seed: &seed, value: UInt(bitPattern: a.hashValue))
-        hash_combine(seed: &seed, value: UInt(bitPattern: b.hashValue))
-        return Int(bitPattern: seed)
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(UInt(bitPattern: a.hashValue))
+        hasher.combine(UInt(bitPattern: b.hashValue))
     }
 }

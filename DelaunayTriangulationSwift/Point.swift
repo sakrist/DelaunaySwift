@@ -9,10 +9,10 @@
 import CoreGraphics
 
 /// A structure that contains a point in a two-dimensional coordinate system.
-public struct Point {
+public struct Point : Hashable {
     public var x: Double
     public var y: Double
-    public var index: Int // Default is -1.
+    public var index: Int = -1// Default is -1.
     
     public init(x: Double, y: Double, i:Int = -1) {
         self.x = x
@@ -64,14 +64,10 @@ public struct Point {
     public func pointValue() -> CGPoint {
         return CGPoint(x: x, y: y)
     }
-}
-
-extension Point: Hashable {
-    public var hashValue: Int {
-        var seed = UInt(0)
-        hash_combine(seed: &seed, value: UInt(bitPattern: x.hashValue))
-        hash_combine(seed: &seed, value: UInt(bitPattern: y.hashValue))
-        return Int(bitPattern: seed)
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(UInt(bitPattern: x.hashValue))
+        hasher.combine(UInt(bitPattern: y.hashValue))
     }
 }
 
@@ -95,7 +91,7 @@ extension Point: Equatable {
 
 extension Array where Element:AnyObject {
     mutating func remove(object: Element) {
-        if let index = index(where: { $0 === object }) {
+        if let index = firstIndex(where: { $0 === object }) {
             remove(at: index)
         }
     }

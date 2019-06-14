@@ -70,26 +70,26 @@ class DelaunayTriangulationSwiftTests: XCTestCase {
     
     func testDelaunayHighDensity() {
         
-//        self.measure {
+        self.measure {
             _ = Delaunay().triangulate(vertices)
-//        }
+        }
     }
     
     func testSpeed() {
         
 
-//        measure {
-        let edges = ConformingDelaunay().triangulate(vertices2, holes_)
-        _ = ConformingDelaunay().triangulate(vertices2, holes_)
-        _ = ConformingDelaunay().triangulate(vertices2, holes_)
-        _ = ConformingDelaunay().triangulate(vertices2, holes_)
-        _ = ConformingDelaunay().triangulate(vertices2, holes_)
-        _ = ConformingDelaunay().triangulate(vertices2, holes_)
-        _ = ConformingDelaunay().triangulate(vertices2, holes_)
-        _ = ConformingDelaunay().triangulate(vertices2, holes_)
-        _ = ConformingDelaunay().triangulate(vertices2, holes_)
-        _ = ConformingDelaunay().triangulate(vertices2, holes_)
-//        }
+        measure {
+            _ = ConformingDelaunay().triangulate(vertices2, holes_)
+            _ = ConformingDelaunay().triangulate(vertices2, holes_)
+            _ = ConformingDelaunay().triangulate(vertices2, holes_)
+            _ = ConformingDelaunay().triangulate(vertices2, holes_)
+            _ = ConformingDelaunay().triangulate(vertices2, holes_)
+            _ = ConformingDelaunay().triangulate(vertices2, holes_)
+            _ = ConformingDelaunay().triangulate(vertices2, holes_)
+            _ = ConformingDelaunay().triangulate(vertices2, holes_)
+            _ = ConformingDelaunay().triangulate(vertices2, holes_)
+            _ = ConformingDelaunay().triangulate(vertices2, holes_)
+        }
         
 //        measure {
 //            let edges = CDT().triangulate(vertices_v, holes_)

@@ -348,10 +348,10 @@ open class ConformingDelaunay : NSObject {
         arraySubst4(&sideEdges[j3], j0, j )
         
         // Flip
-        if let ind = nodes[edge.a.index].edges.index(of: edge) {
+        if let ind = nodes[edge.a.index].edges.firstIndex(of: edge) {
             nodes[edge.a.index].edges.remove(at: ind)
         }
-        if let ind = nodes[edge.b.index].edges.index(of: edge) {
+        if let ind = nodes[edge.b.index].edges.firstIndex(of: edge) {
             nodes[edge.b.index].edges.remove(at: ind)
         }
         
@@ -585,28 +585,28 @@ open class ConformingDelaunay : NSObject {
                     for e2 in node2.edges {
                         if e1 != e2 && (e0.a.index == e2.b.index || e0.a.index == e2.a.index) {
                             edgesCopy.remove(at: 0)
-                            if let ind = edgesCopy.index(of: e1) {
+                            if let ind = edgesCopy.firstIndex(of: e1) {
                                 edgesCopy.remove(at: ind)
                             }
-                            if let ind = edgesCopy.index(of: e2) {
+                            if let ind = edgesCopy.firstIndex(of: e2) {
                                 edgesCopy.remove(at: ind)
                             }
-                            if let ind = allNodes[e0.a.index].edges.index(of: e0) {
+                            if let ind = allNodes[e0.a.index].edges.firstIndex(of: e0) {
                                 allNodes[e0.a.index].edges.remove(at: ind)
                             }
-                            if let ind = allNodes[e0.b.index].edges.index(of: e0) {
+                            if let ind = allNodes[e0.b.index].edges.firstIndex(of: e0) {
                                 allNodes[e0.b.index].edges.remove(at: ind)
                             }
-                            if let ind = allNodes[e1.a.index].edges.index(of: e1) {
+                            if let ind = allNodes[e1.a.index].edges.firstIndex(of: e1) {
                                 allNodes[e1.a.index].edges.remove(at: ind)
                             }
-                            if let ind = allNodes[e1.b.index].edges.index(of: e1) {
+                            if let ind = allNodes[e1.b.index].edges.firstIndex(of: e1) {
                                 allNodes[e1.b.index].edges.remove(at: ind)
                             }
-                            if let ind = allNodes[e2.a.index].edges.index(of: e2) {
+                            if let ind = allNodes[e2.a.index].edges.firstIndex(of: e2) {
                                 allNodes[e2.a.index].edges.remove(at: ind)
                             }
-                            if let ind = allNodes[e2.b.index].edges.index(of: e2) {
+                            if let ind = allNodes[e2.b.index].edges.firstIndex(of: e2) {
                                 allNodes[e2.b.index].edges.remove(at: ind)
                             }
                             
