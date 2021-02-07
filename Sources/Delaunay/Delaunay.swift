@@ -90,7 +90,7 @@ open class Delaunay : NSObject {
         
         /* Make an array of indices into the vertex array, sorted by the
         * vertices' x-position. */
-        var indices = [Int](0..<n).sorted {  _vertices[$0].x < _vertices[$1].x }
+        let indices = [Int](0..<n).sorted {  _vertices[$0].x < _vertices[$1].x }
         
         /* Next, find the vertices of the supertriangle (which contains all other
         * triangles) */

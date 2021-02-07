@@ -77,7 +77,7 @@ open class ConformingDelaunay : NSObject {
     }
     
     func findDeepestInside(_ abc:Triangle ) -> ((PointNode, PointNode, PointNode?) -> PointNode?) {
-        var ac = Edge(abc.point1, abc.point3);
+        let ac = Edge(abc.point1, abc.point3);
         func best(nodeBeg:PointNode, nodeEnd:PointNode, bestNode:PointNode?) -> PointNode? {
             var bestNode = bestNode
             var maxDepthSq = (bestNode != nil)
@@ -403,7 +403,7 @@ open class ConformingDelaunay : NSObject {
     
     open func triangulate(_ vertices: [Point], _ holesVertices:[[Point]]?) -> [Triangle] {
 
-        var _vertices = _removeDuplicates(vertices)
+        let _vertices = _removeDuplicates(vertices)
         
         var allNodes = constructLinkedPolygon(_vertices)
         var polies = [allNodes.first!]
